@@ -29,10 +29,10 @@ public class TranslatorTest {
 		
 	@Test
 	public void translate_startsWithVowel(){
-		assertEquals("eay", translator.translate("e"));
-		assertEquals("aay", translator.translate("a"));
-		assertEquals("iay", translator.translate("i"));
-		assertEquals("oay", translator.translate("o"));
-		assertEquals("uay", translator.translate("u"));
+		assertEquals("elephantay", translator.translate("elephant"));
+		assertEquals("appleay", translator.translate("apple"));
+		assertEquals("iglooay", translator.translate("igloo"));
+		assertEquals("opalay", translator.translate("opal"));
+		assertEquals("upay", translator.translate("up"));
 	}
 }
