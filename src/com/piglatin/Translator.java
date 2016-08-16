@@ -1,28 +1,19 @@
 package com.piglatin;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Translator {
-
-	public String translate(String englishWord) {
-		if ((englishWord.charAt(0) == 'q' && englishWord.charAt(1) == 'u')) {
-			return (englishWord.substring(2, englishWord.length())
-					+ englishWord.substring(0, 2) + "ay");
-		} else if (isStartsWithVowel(englishWord)) {
-			return (englishWord + "ay");
-		} else {
-			return (englishWord.substring(1, englishWord.length())
-					+ englishWord.substring(0, 1) + "ay");
-		}
-	}
-
-	private boolean isStartsWithVowel(String englishWord) {
-		final List<Character> vowels = Arrays.asList(new Character[] { 'a', 'e',
-				'i', 'o', 'u' });
-
-		if (vowels.contains(englishWord.charAt(0)))
-			return true;
-		return false;
+	private VowelRule vowelRule = new VowelRule();
+	private QUClusterRule quCluster = new QUClusterRule();
+	private ConsonantRule consonantRule = new ConsonantRule();
+	
+	public String translate(String string) {				
+		if(vowelRule.attemptRule(string)) return vowelRule.getPigLatinWord(); 
+		else if(quCluster.attemptRule(string)) return quCluster.getPigLatinWord();
+		else {
+			consonantRule.attemptRule(string);
+			return consonantRule.getPigLatinWord();
+		}	
 	}
 }
