@@ -9,6 +9,7 @@ public class Translator {
 	private QUClusterRule quCluster = new QUClusterRule();
 	private ConsonantRule consonantRule = new ConsonantRule();
 	
+	// Refactor the Rules to a common interface so we can simplify below code.
 	public String translate(String string) {				
 		if(vowelRule.attemptRule(string)) return vowelRule.getPigLatinWord(); 
 		else if(quCluster.attemptRule(string)) return quCluster.getPigLatinWord();
