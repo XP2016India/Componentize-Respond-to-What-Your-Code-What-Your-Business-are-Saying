@@ -1,4 +1,4 @@
-package com.piglatin;
+package com.piglatin.rulesandcheckers;
 
 public class QUChecker {
 	

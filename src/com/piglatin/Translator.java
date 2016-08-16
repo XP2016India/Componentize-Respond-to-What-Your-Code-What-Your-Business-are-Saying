@@ -1,21 +1,21 @@
 package com.piglatin;
+import com.piglatin.rulesandcheckers.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.piglatin.rulesandcheckers.TranslationRuleable;
+import com.piglatin.rulesandcheckers.VowelRule;
+
 public class Translator {
-	// Organize activities into classes and develop understanding about design.
-	private VowelRule vowelRule = new VowelRule();
-	private QUClusterRule quCluster = new QUClusterRule();
-	private ConsonantRule consonantRule = new ConsonantRule();
+	// Refactored the Rules to a common interface so we can simplify below code.
+	private TranslationRuleable [] rules = {new VowelRule(),  new QUClusterRule(), new ConsonantRule()};
 	
-	// Refactor the Rules to a common interface so we can simplify below code.
-	public String translate(String string) {				
-		if(vowelRule.attemptRule(string)) return vowelRule.getPigLatinWord(); 
-		else if(quCluster.attemptRule(string)) return quCluster.getPigLatinWord();
-		else {
-			consonantRule.attemptRule(string);
-			return consonantRule.getPigLatinWord();
-		}	
+	public String translate(String englishWord) {
+		if(englishWord.length() < 1) return "";
+		for(TranslationRuleable rule : rules) {
+			if(rule.attemptRule(englishWord)) return rule.getPigLatinWord();
+		}
+		throw new IllegalStateException("no TranslationRuleable was applied.");
 	}
 }

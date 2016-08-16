@@ -10,13 +10,19 @@ public class TranslatorTest {
 	private Translator translator;
 
 	@Before
-	public void create()
-	{
+	public void create() {
 		translator = new Translator();
+	}
+
+	@Test
+	public void translate_simpleTranslation() {
+		assertEquals("ellohay", translator.translate("hello"));
 	}
 	
 	@Test
-	public void translate_simpleTranslation(){		
-		assertEquals("ellohay", translator.translate("hello"));
+	public void translate_emptyString()
+	{
+		assertEquals("", translator.translate(""));
+		assertEquals("", translator.translate(new String()));
 	}
 }

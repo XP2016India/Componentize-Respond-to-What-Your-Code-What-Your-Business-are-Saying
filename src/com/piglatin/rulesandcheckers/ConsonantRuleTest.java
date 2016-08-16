@@ -1,4 +1,4 @@
-package com.piglatin;
+package com.piglatin.rulesandcheckers;
 
 import static org.junit.Assert.*;
 import org.junit.Before;

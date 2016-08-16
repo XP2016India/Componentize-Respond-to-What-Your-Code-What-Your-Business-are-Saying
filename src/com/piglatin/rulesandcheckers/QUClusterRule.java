@@ -1,6 +1,8 @@
-package com.piglatin;
+package com.piglatin.rulesandcheckers;
 
-public class QUClusterRule {
+import com.piglatin.rulesandcheckers.TranslationRuleable;
+
+public class QUClusterRule implements TranslationRuleable {
 	QUChecker quChecker = new QUChecker();
 	private String pigLatinWord;
 

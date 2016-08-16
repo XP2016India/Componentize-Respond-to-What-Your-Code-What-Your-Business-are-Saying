@@ -1,4 +1,4 @@
-package com.piglatin;
+package com.piglatin.rulesandcheckers;
 
 import java.util.Arrays;
 import java.util.List;

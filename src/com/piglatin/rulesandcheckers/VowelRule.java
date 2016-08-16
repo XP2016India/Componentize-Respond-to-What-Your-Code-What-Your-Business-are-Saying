@@ -1,15 +1,12 @@
-package com.piglatin;
+package com.piglatin.rulesandcheckers;
 
-public class VowelRule {
-	private VowelChecker vowelChecker;
+
+public class VowelRule implements TranslationRuleable{
+	private VowelChecker vowelChecker = new VowelChecker();;
 	private String pigLatinWord;
 
 	public String getPigLatinWord() {
 		return pigLatinWord;
-	}
-
-	public VowelRule() {
-		this.vowelChecker = new VowelChecker();
 	}
 
 	public boolean attemptRule(String englishWord) {
