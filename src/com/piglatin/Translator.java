@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Translator {
+	// Organize activities into classes and develop understanding about design.
 	private VowelRule vowelRule = new VowelRule();
 	private QUClusterRule quCluster = new QUClusterRule();
 	private ConsonantRule consonantRule = new ConsonantRule();
