@@ -10,17 +10,13 @@ common_interfaces is the next step to deciding what activities are common across
 
 discovery here we use "replace algorithim" refactoring and replace the array declration with two static finctions that use Reflection to inspect the classpath for TranslationRuleable classes, then dynamically create the list at runtime.  I also discover i needed to add to my common interface to force ConsonentRule to be executed last.  My unit tests told me this by giving me bad news.
 
-Here are the static functions, authored by Victor Tatai.  It seemed like the least complex code to use.
-
-/** The next two static functions were copy/pasted from: by Victor Tatai https://dzone.com/articles/get-all-classes-within-package
-	* Other alternatives: https://github.com/lukehutch/fast-classpath-scanner
-	*  https://github.com/ronmamo/reflections
-	*  
-	*  Use annotations: http://stackoverflow.com/questions/259140/scanning-java-annotations-at-runtime   There you'll see Spring or Java Annotations
-	*  strategies.
-	*  
-	*  It turns out that built in Java Reflections doesn't easily do this for you and you actually have to do the work. :-)
-	*/ 
+Here are the static functions, authored by Victor Tatai.  It seemed like the least complex code to use. ( https://dzone.com/articles/get-all-classes-within-package)  Other alternatives:
+	https://github.com/lukehutch/fast-classpath-scanner
+	https://github.com/ronmamo/reflections
+	  
+	Use annotations: http://stackoverflow.com/questions/259140/scanning-java-annotations-at-runtime   There you'll see Spring or Java Annotations strategies.
+	It turns out that built in Java Reflections doesn't easily do this for you and you actually have to do the work. :-)
+	 
 	private static Class[] getClasses(String packageName)
 			throws ClassNotFoundException, IOException {
 		ClassLoader classLoader = Thread.currentThread()
