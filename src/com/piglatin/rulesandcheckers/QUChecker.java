@@ -6,4 +6,6 @@ public class QUChecker {
 	{
 		return new String(maybeQU).equals("qu");
 	}
+	
+	public boolean isRunLast() { return false;}
 }
